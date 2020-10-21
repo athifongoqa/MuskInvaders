@@ -1,1 +1,1 @@
-ls
+print("Time for aliens!")
