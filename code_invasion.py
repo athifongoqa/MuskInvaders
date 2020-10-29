@@ -3,6 +3,7 @@ from time import sleep
 import pygame
 from settings import Settings
 from game_stats import GameStats
+from music import Musica
 from scoreboard import Scoreboard
 from button import Button
 from ship import Ship
@@ -30,6 +31,7 @@ class AlienInvasion:
         self.aliens = pygame.sprite.Group()
 
         self._create_fleet()
+        self.music = Musica()
 
         # Make play button
         self.play_button = Button(self, "Play")
@@ -45,7 +47,8 @@ class AlienInvasion:
                 self._update_aliens()
                 
             self._update_screen()
-
+            self.music._play_music()
+    
     def _check_events(self):
     # Respond to keypresses and mouse events.
         for event in pygame.event.get():
